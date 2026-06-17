@@ -136,7 +136,7 @@ Scores are mean ± std across 200 evaluated examples, judged by Google Gemini 2.
 
 ## Data Sources
 
-- SHARP solar magnetogram data: https://jsoc.stanford.edu
+- SHARP solar magnetogram data: http://jsoc.stanford.edu/HMI/HARPS.html
 - Pre-trained solar flare predictor (MIST model): https://zenodo.org/records/16780646
 
 ## Notes for SLURM Users
