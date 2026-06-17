@@ -1,8 +1,6 @@
 # LLMFlare: Explainable Solar Flare Prediction Using Large Language Models
 
-This repository contains the code and data for the paper:
-**"Explainable Solar Flare Prediction Using Deep Learning and Large Language Models"**
-Chaudhary, Y., Abdullah, Y., and Wang, J.T.L. (ICTAI 2026)
+This repository contains the code and data for the LLMFlare package.
 
 ## Overview
 
@@ -29,12 +27,12 @@ LLMFlare/
 │       ├── adapter_model.safetensors
 │       ├── adapter_config.json
 │       └── tokenizer files
-├── 1_generate_shap_data.py                         # Generate SHAP values (requires MTST model)
+├── 1_generate_shap_data.py                         # Generate SHAP values (requires MIST model)
 ├── 2_create_narratives_invincible_V2.py            # Dynamic Narrative Engine
 ├── 3_finetune_llm_invincible_v2.py                 # Fine-tune Llama 3 8B
 ├── 4_evaluate_model_invincible_v2.py               # Evaluate fine-tuned model
 ├── 4b_evaluate_zeroshot_baseline.py                # Evaluate zero-shot baseline
-├── 5_generate_paper_examples_solar.py              # Generate paper examples (requires MTST model)
+├── 5_generate_paper_examples_solar.py              # Generate paper examples (requires MIST model)
 ├── config.py                                       # Centralized configuration and paths
 ├── requirements.txt
 └── README.md
@@ -81,18 +79,18 @@ export GOOGLE_API_KEY="your_key"
 python 4_evaluate_model_invincible_v2.py
 ```
 
-### Option B — Re-generate training data and fine-tune (requires MTST model)
+### Option B — Re-generate training data and fine-tune (requires MIST model)
 
-**⚠️ Important**: Scripts 1 and 2 require the MTST solar flare predictor model, which is **not included** in this repository.
+**⚠️ Important**: Scripts 1 and 2 require the MIST solar flare predictor model, which is **not included** in this repository.
 The pre-computed outputs (`X_test.npy` and `shap_values_full.npy`) are already provided.
 
-To get the MTST model:
+To get the MIST model:
 - See: https://zenodo.org/records/16780646
 - Or contact the FLAIRS paper authors
 
-If you have the MTST model, the full pipeline is:
+If you have the MIST model, the full pipeline is:
 
-**Step 1: Generate SHAP values** (requires MTST model)
+**Step 1: Generate SHAP values** (requires MIST model)
 ```bash
 python 1_generate_shap_data.py
 ```
@@ -122,7 +120,7 @@ export GOOGLE_API_KEY="your_key"
 python 4b_evaluate_zeroshot_baseline.py
 ```
 
-**Step 6: Generate paper examples** (requires MTST model)
+**Step 6: Generate paper examples** (requires MIST model)
 ```bash
 python 5_generate_paper_examples_solar.py
 ```
@@ -139,7 +137,7 @@ Scores are mean ± std across 200 evaluated examples, judged by Google Gemini 2.
 ## Data Sources
 
 - SHARP solar magnetogram data: https://jsoc.stanford.edu
-- Pre-trained solar flare predictor (MTST model): https://zenodo.org/records/16780646
+- Pre-trained solar flare predictor (MIST model): https://zenodo.org/records/16780646
 
 ## Notes for SLURM Users
 
@@ -148,22 +146,9 @@ SLURM scripts are provided for HPC cluster users. Before running:
 2. Update `#SBATCH --account` to your cluster account
 3. Set `HUGGING_FACE_HUB_TOKEN` and `GOOGLE_API_KEY` environment variables
 
-## Citation
-
-```bibtex
-@inproceedings{chaudhary2026llmflare,
-  title={Explainable Solar Flare Prediction Using Deep Learning and Large Language Models},
-  author={Chaudhary, Yash and Abdullah, Yasser and Wang, Jason T.L.},
-  booktitle={Proceedings of the 38th IEEE International Conference on Tools with Artificial Intelligence (ICTAI)},
-  year={2026}
-}
-```
-
 ## License
 
 MIT License
-
-Copyright (c) 2026 Yash Chaudhary, Yasser Abdullah, Jason T.L. Wang
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
